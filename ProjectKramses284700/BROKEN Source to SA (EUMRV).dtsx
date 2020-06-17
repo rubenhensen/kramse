@@ -1,0 +1,2430 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/23/2020 3:22:36 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-NACTEHP8"
+  DTS:CreatorName="LAPTOP-NACTEHP8\ruben"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{A4F620F0-5254-4818-9F8D-76ABA58D0042}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Package1"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{498FBCB8-5856-4E55-BB3D-DD222839D2AE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{97D8CF5C-7EB9-4E5A-B5DB-35324786397C}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=aei-sql.avans.nl\Studenten,1443;User ID=i2084700;Initial Catalog=i2084700_Project3;Provider=MSOLEDBSQL;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2kcmjlsCqEmakaRbri3FOgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA3c6CoIZK9P4CfkidVKBELax4UBmNOWWJXyVozTRHbTwAAAAAOgAAAAAIAACAAAAANUUipHEFIhrsg9fSf+m+JXKMWmEYStpyASFh4eW5FERAAAABSK9UuMKJZgBjGml4KG1W0QAAAACdtT2Rvq8QDYw7LBMNWd/1tS9YywSMUzFJsQoZtpbRO6Q3StOTVuKRgK7t8qmiruqmjsZkcTdM/VlAZwdLo+zU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{6368C96F-75D6-4F2F-A42C-A2768497EEB4}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ruben\Source\Repos\ProjectKramses284700\2016-v3-02072019-EU MRV Publication of information.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5020B2BF-1EF3-4F3C-A8B2-2D0D5EA2592A}"
+      DTS:ObjectName="SourceConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ruben\Source\Repos\ProjectKramses284700\2016-exp.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{935E656C-E6C3-4B02-93F6-D5EC80512C1A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - '2016$'"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - '2016$'"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].['2016$']</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - '2016$'.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[IMO Number]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IMO Number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[IMO Number]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[IMO Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Ship type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ship type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Ship type]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Ship type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Reporting Period]"
+                      cachedDataType="r8"
+                      cachedName="Reporting Period"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Reporting Period]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Reporting Period]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Technical efficiency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Technical efficiency"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Technical efficiency]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Technical efficiency]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Port of Registry]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Port of Registry"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Port of Registry]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Port of Registry]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Home Port]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Home Port"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Home Port]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Home Port]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Ice Class]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ice Class"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Ice Class]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Ice Class]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[DoC issue date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DoC issue date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[DoC issue date]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[DoC issue date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[DoC expiry date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DoC expiry date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[DoC expiry date]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[DoC expiry date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Verifier Number]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Verifier Number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Number]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Verifier Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Verifier Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Name]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Verifier NAB]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Verifier NAB"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier NAB]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier NAB]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Verifier Address]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Verifier Address"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Address]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Address]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Verifier City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Verifier City"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier City]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier City]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Verifier Accreditation number]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Verifier Accreditation number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Accreditation number]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Accreditation number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Verifier Country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Verifier Country"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Country]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Country]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[A]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="A"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[A]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[A]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[B]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="B"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[B]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[B]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[C]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="C"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[C]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[C]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[D]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="D"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[D]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[D]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Total fuel consumption (m tonnes)]"
+                      cachedDataType="r8"
+                      cachedName="Total fuel consumption (m tonnes)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total fuel consumption (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuel consumptions assigned to On laden (m tonnes)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Total CO₂ emissions (m tonnes)]"
+                      cachedDataType="r8"
+                      cachedName="Total CO₂ emissions (m tonnes)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total CO₂ emissions (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total CO₂ emissions (m tonnes)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      cachedDataType="r8"
+                      cachedName="CO₂ emissions from all voyages between ports under a MS jurisdic"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions from all voyages which departed from ports under a]"
+                      cachedDataType="r8"
+                      cachedName="CO₂ emissions from all voyages which departed from ports under a"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages which departed from ports under a]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      cachedDataType="r8"
+                      cachedName="CO₂ emissions from all voyages to ports under a MS jurisdiction "
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      cachedDataType="r8"
+                      cachedName="CO₂ emissions which occurred within ports under a MS jurisdictio"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions assigned to Passenger transport (m tonnes)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions assigned to Freight transport (m tonnes)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions assigned to On laden (m tonnes)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual Total time spent at sea (hours)]"
+                      cachedDataType="r8"
+                      cachedName="Annual Total time spent at sea (hours)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual Total time spent at sea (hours)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      cachedDataType="r8"
+                      cachedName="Annual average Fuel consumption per distance (kg / n mile)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average Fuel consumption per transport work (mass) (g / m"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average Fuel consumption per transport work (volume) (g /"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average Fuel consumption per transport work (dwt) (g / dw"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      cachedDataType="r8"
+                      cachedName="Annual average Fuel consumption per transport work (pax) (g / pa"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average Fuel consumption per transport work (freight) (g "
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      cachedDataType="r8"
+                      cachedName="Annual average CO₂ emissions per distance (kg CO₂ / n mile)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average CO₂ emissions per transport work (mass) (g CO₂ / "
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average CO₂ emissions per transport work (volume) (g CO₂ "
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      cachedDataType="r8"
+                      cachedName="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Annual average CO₂ emissions per transport work (freight) (g CO₂"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Through ice (n miles)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Through ice (n miles)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Through ice (n miles)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Through ice (n miles)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Total time spent at sea (hours)]"
+                      cachedDataType="r8"
+                      cachedName="Total time spent at sea (hours)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total time spent at sea (hours)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Total time spent at sea through ice (hours)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Total time spent at sea through ice (hours)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total time spent at sea through ice (hours)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[F48]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="F48"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[F48]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[F48]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuel consumption per distance on laden voyages (kg / n mile)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuel consumption per transport work (mass) on laden voyages (g /"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuel consumption per transport work (volume) on laden voyages (g"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuel consumption per transport work (dwt) on laden voyages (g / "
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuel consumption per transport work (pax) on laden voyages (g / "
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuel consumption per transport work (freight) on laden voyages ("
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ "
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions per transport work (volume) on laden voyages (g CO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CO₂ emissions per transport work (freight) on laden voyages (g C"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Additional information to facilitate the understanding of the re]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Additional information to facilitate the understanding of the re"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Additional information to facilitate the understanding of the re]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].Columns[Average density of the cargo transported (m tonnes / m³)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Average density of the cargo transported (m tonnes / m³)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[IMO Number]"
+                      dataType="wstr"
+                      length="255"
+                      name="IMO Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Ship type]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ship type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Reporting Period]"
+                      dataType="r8"
+                      name="Reporting Period" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Technical efficiency]"
+                      dataType="wstr"
+                      length="255"
+                      name="Technical efficiency" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Port of Registry]"
+                      dataType="wstr"
+                      length="255"
+                      name="Port of Registry" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Home Port]"
+                      dataType="wstr"
+                      length="255"
+                      name="Home Port" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Ice Class]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ice Class" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[DoC issue date]"
+                      dataType="wstr"
+                      length="255"
+                      name="DoC issue date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[DoC expiry date]"
+                      dataType="wstr"
+                      length="255"
+                      name="DoC expiry date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Number]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier NAB]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier NAB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Address]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier City]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Accreditation number]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Accreditation number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Verifier Country]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Country" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[A]"
+                      dataType="wstr"
+                      length="255"
+                      name="A" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[B]"
+                      dataType="wstr"
+                      length="255"
+                      name="B" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[C]"
+                      dataType="wstr"
+                      length="255"
+                      name="C" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[D]"
+                      dataType="wstr"
+                      length="255"
+                      name="D" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total fuel consumption (m tonnes)]"
+                      dataType="r8"
+                      name="Total fuel consumption (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumptions assigned to On laden (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total CO₂ emissions (m tonnes)]"
+                      dataType="r8"
+                      name="Total CO₂ emissions (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      dataType="r8"
+                      name="CO₂ emissions from all voyages between ports under a MS jurisdic" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
+                      dataType="r8"
+                      name="CO₂ emissions from all voyages which departed from ports under a" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      dataType="r8"
+                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      dataType="r8"
+                      name="CO₂ emissions which occurred within ports under a MS jurisdictio" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions assigned to Passenger transport (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions assigned to Freight transport (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions assigned to On laden (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual Total time spent at sea (hours)]"
+                      dataType="r8"
+                      name="Annual Total time spent at sea (hours)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      dataType="r8"
+                      name="Annual average Fuel consumption per distance (kg / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (mass) (g / m" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (volume) (g /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (dwt) (g / dw" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      dataType="r8"
+                      name="Annual average Fuel consumption per transport work (pax) (g / pa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (freight) (g " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      dataType="r8"
+                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      dataType="r8"
+                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Through ice (n miles)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Through ice (n miles)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total time spent at sea (hours)]"
+                      dataType="r8"
+                      name="Total time spent at sea (hours)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Total time spent at sea through ice (hours)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Total time spent at sea through ice (hours)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[F48]"
+                      dataType="wstr"
+                      length="255"
+                      name="F48" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per distance on laden voyages (kg / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (mass) on laden voyages (g /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (volume) on laden voyages (g" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (dwt) on laden voyages (g / " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (pax) on laden voyages (g / " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (freight) on laden voyages (" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (freight) on laden voyages (g C" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Additional information to facilitate the understanding of the re]"
+                      dataType="wstr"
+                      length="255"
+                      name="Additional information to facilitate the understanding of the re" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Average density of the cargo transported (m tonnes / m³)" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - '2016$'.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - '2016$'.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - '2016$'.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - '2016$'.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - '2016$'"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source - '2016$'"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'2016$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - '2016$'.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[IMO Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[IMO Number]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[IMO Number]"
+                      name="IMO Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Ship type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Ship type]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Ship type]"
+                      name="Ship type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Reporting Period]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Reporting Period]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Reporting Period]"
+                      name="Reporting Period"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Technical efficiency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Technical efficiency]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Technical efficiency]"
+                      name="Technical efficiency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Port of Registry]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Port of Registry]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Port of Registry]"
+                      name="Port of Registry"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Home Port]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Home Port]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Home Port]"
+                      name="Home Port"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Ice Class]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Ice Class]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Ice Class]"
+                      name="Ice Class"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[DoC issue date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[DoC issue date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[DoC issue date]"
+                      name="DoC issue date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[DoC expiry date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[DoC expiry date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[DoC expiry date]"
+                      name="DoC expiry date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Number]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Number]"
+                      name="Verifier Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Name]"
+                      name="Verifier Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier NAB]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier NAB]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier NAB]"
+                      name="Verifier NAB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Address]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Address]"
+                      name="Verifier Address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier City]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier City]"
+                      name="Verifier City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Accreditation number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Accreditation number]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Accreditation number]"
+                      name="Verifier Accreditation number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Country]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Verifier Country]"
+                      name="Verifier Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[A]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[A]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[A]"
+                      name="A"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[B]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[B]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[B]"
+                      name="B"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[C]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[C]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[C]"
+                      name="C"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[D]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[D]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[D]"
+                      name="D"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total fuel consumption (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]"
+                      name="Total fuel consumption (m tonnes)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      name="Fuel consumptions assigned to On laden (m tonnes)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total CO₂ emissions (m tonnes)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total CO₂ emissions (m tonnes)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total CO₂ emissions (m tonnes)]"
+                      name="Total CO₂ emissions (m tonnes)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      name="CO₂ emissions from all voyages between ports under a MS jurisdic"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
+                      name="CO₂ emissions from all voyages which departed from ports under a"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      name="CO₂ emissions which occurred within ports under a MS jurisdictio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      name="CO₂ emissions assigned to Passenger transport (m tonnes)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      name="CO₂ emissions assigned to Freight transport (m tonnes)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      name="CO₂ emissions assigned to On laden (m tonnes)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual Total time spent at sea (hours)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]"
+                      name="Annual Total time spent at sea (hours)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      name="Annual average Fuel consumption per distance (kg / n mile)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      name="Annual average Fuel consumption per transport work (mass) (g / m"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      name="Annual average Fuel consumption per transport work (volume) (g /"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      name="Annual average Fuel consumption per transport work (dwt) (g / dw"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      name="Annual average Fuel consumption per transport work (pax) (g / pa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      name="Annual average Fuel consumption per transport work (freight) (g "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Through ice (n miles)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Through ice (n miles)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Through ice (n miles)]"
+                      name="Through ice (n miles)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea (hours)]"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]"
+                      name="Total time spent at sea (hours)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea through ice (hours)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]"
+                      name="Total time spent at sea through ice (hours)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[F48]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[F48]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[F48]"
+                      name="F48"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      name="Fuel consumption per distance on laden voyages (kg / n mile)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      name="Fuel consumption per transport work (mass) on laden voyages (g /"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      name="Fuel consumption per transport work (volume) on laden voyages (g"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      name="Fuel consumption per transport work (dwt) on laden voyages (g / "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      name="Fuel consumption per transport work (pax) on laden voyages (g / "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      name="Fuel consumption per transport work (freight) on laden voyages ("
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      name="CO₂ emissions per transport work (freight) on laden voyages (g C"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Additional information to facilitate the understanding of the re]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]"
+                      name="Additional information to facilitate the understanding of the re"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
+                      name="Average density of the cargo transported (m tonnes / m³)"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[IMO Number]"
+                      dataType="wstr"
+                      length="255"
+                      name="IMO Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Ship type]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ship type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Reporting Period]"
+                      dataType="r8"
+                      name="Reporting Period" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Technical efficiency]"
+                      dataType="wstr"
+                      length="255"
+                      name="Technical efficiency" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Port of Registry]"
+                      dataType="wstr"
+                      length="255"
+                      name="Port of Registry" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Home Port]"
+                      dataType="wstr"
+                      length="255"
+                      name="Home Port" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Ice Class]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ice Class" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[DoC issue date]"
+                      dataType="wstr"
+                      length="255"
+                      name="DoC issue date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[DoC expiry date]"
+                      dataType="wstr"
+                      length="255"
+                      name="DoC expiry date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Number]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier NAB]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier NAB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Address]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier City]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Accreditation number]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Accreditation number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Verifier Country]"
+                      dataType="wstr"
+                      length="255"
+                      name="Verifier Country" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[A]"
+                      dataType="wstr"
+                      length="255"
+                      name="A" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[B]"
+                      dataType="wstr"
+                      length="255"
+                      name="B" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[C]"
+                      dataType="wstr"
+                      length="255"
+                      name="C" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[D]"
+                      dataType="wstr"
+                      length="255"
+                      name="D" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total fuel consumption (m tonnes)]"
+                      dataType="r8"
+                      name="Total fuel consumption (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumptions assigned to On laden (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total CO₂ emissions (m tonnes)]"
+                      dataType="r8"
+                      name="Total CO₂ emissions (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      dataType="r8"
+                      name="CO₂ emissions from all voyages between ports under a MS jurisdic" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
+                      dataType="r8"
+                      name="CO₂ emissions from all voyages which departed from ports under a" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      dataType="r8"
+                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      dataType="r8"
+                      name="CO₂ emissions which occurred within ports under a MS jurisdictio" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions assigned to Passenger transport (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions assigned to Freight transport (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions assigned to On laden (m tonnes)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual Total time spent at sea (hours)]"
+                      dataType="r8"
+                      name="Annual Total time spent at sea (hours)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      dataType="r8"
+                      name="Annual average Fuel consumption per distance (kg / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (mass) (g / m" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (volume) (g /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (dwt) (g / dw" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      dataType="r8"
+                      name="Annual average Fuel consumption per transport work (pax) (g / pa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average Fuel consumption per transport work (freight) (g " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      dataType="r8"
+                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      dataType="r8"
+                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      dataType="wstr"
+                      length="255"
+                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Through ice (n miles)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Through ice (n miles)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea (hours)]"
+                      dataType="r8"
+                      name="Total time spent at sea (hours)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea through ice (hours)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Total time spent at sea through ice (hours)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[F48]"
+                      dataType="wstr"
+                      length="255"
+                      name="F48" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per distance on laden voyages (kg / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (mass) on laden voyages (g /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (volume) on laden voyages (g" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (dwt) on laden voyages (g / " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (pax) on laden voyages (g / " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fuel consumption per transport work (freight) on laden voyages (" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      dataType="wstr"
+                      length="255"
+                      name="CO₂ emissions per transport work (freight) on laden voyages (g C" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Additional information to facilitate the understanding of the re]"
+                      dataType="wstr"
+                      length="255"
+                      name="Additional information to facilitate the understanding of the re" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Average density of the cargo transported (m tonnes / m³)" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[IMO Number]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[IMO Number]"
+                      name="IMO Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Ship type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Ship type]"
+                      name="Ship type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Reporting Period]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Reporting Period]"
+                      name="Reporting Period" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Technical efficiency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Technical efficiency]"
+                      name="Technical efficiency" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Port of Registry]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Port of Registry]"
+                      name="Port of Registry" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Home Port]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Home Port]"
+                      name="Home Port" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Ice Class]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Ice Class]"
+                      name="Ice Class" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[DoC issue date]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[DoC issue date]"
+                      name="DoC issue date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[DoC expiry date]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[DoC expiry date]"
+                      name="DoC expiry date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Number]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Number]"
+                      name="Verifier Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Name]"
+                      name="Verifier Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier NAB]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier NAB]"
+                      name="Verifier NAB" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Address]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Address]"
+                      name="Verifier Address" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier City]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier City]"
+                      name="Verifier City" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Accreditation number]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Accreditation number]"
+                      name="Verifier Accreditation number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Verifier Country]"
+                      name="Verifier Country" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[A]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[A]"
+                      name="A" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[B]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[B]"
+                      name="B" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[C]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[C]"
+                      name="C" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[D]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[D]"
+                      name="D" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total fuel consumption (m tonnes)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total fuel consumption (m tonnes)]"
+                      name="Total fuel consumption (m tonnes)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
+                      name="Fuel consumptions assigned to On laden (m tonnes)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total CO₂ emissions (m tonnes)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total CO₂ emissions (m tonnes)]"
+                      name="Total CO₂ emissions (m tonnes)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
+                      name="CO₂ emissions from all voyages between ports under a MS jurisdic" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
+                      name="CO₂ emissions from all voyages which departed from ports under a" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
+                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction " />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
+                      name="CO₂ emissions which occurred within ports under a MS jurisdictio" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
+                      name="CO₂ emissions assigned to Passenger transport (m tonnes)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
+                      name="CO₂ emissions assigned to Freight transport (m tonnes)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
+                      name="CO₂ emissions assigned to On laden (m tonnes)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual Total time spent at sea (hours)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual Total time spent at sea (hours)]"
+                      name="Annual Total time spent at sea (hours)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
+                      name="Annual average Fuel consumption per distance (kg / n mile)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
+                      name="Annual average Fuel consumption per transport work (mass) (g / m" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
+                      name="Annual average Fuel consumption per transport work (volume) (g /" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
+                      name="Annual average Fuel consumption per transport work (dwt) (g / dw" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
+                      name="Annual average Fuel consumption per transport work (pax) (g / pa" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
+                      name="Annual average Fuel consumption per transport work (freight) (g " />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
+                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
+                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / " />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
+                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ " />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
+                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
+                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
+                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Through ice (n miles)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Through ice (n miles)]"
+                      name="Through ice (n miles)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total time spent at sea (hours)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total time spent at sea (hours)]"
+                      name="Total time spent at sea (hours)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total time spent at sea through ice (hours)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Total time spent at sea through ice (hours)]"
+                      name="Total time spent at sea through ice (hours)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[F48]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[F48]"
+                      name="F48" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
+                      name="Fuel consumption per distance on laden voyages (kg / n mile)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
+                      name="Fuel consumption per transport work (mass) on laden voyages (g /" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
+                      name="Fuel consumption per transport work (volume) on laden voyages (g" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
+                      name="Fuel consumption per transport work (dwt) on laden voyages (g / " />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
+                      name="Fuel consumption per transport work (pax) on laden voyages (g / " />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
+                      name="Fuel consumption per transport work (freight) on laden voyages (" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
+                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
+                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ " />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
+                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
+                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
+                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
+                      name="CO₂ emissions per transport work (freight) on laden voyages (g C" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Additional information to facilitate the understanding of the re]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Additional information to facilitate the understanding of the re]"
+                      name="Additional information to facilitate the understanding of the re" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
+                      name="Average density of the cargo transported (m tonnes / m³)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task 1\Destination - '2016$'.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source - '2016$'.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop table(s) SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{5EF83F81-3221-4F9F-9E49-191482A54592}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop table(s) SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{97D8CF5C-7EB9-4E5A-B5DB-35324786397C}"
+          SQLTask:SqlStatementSource="drop table [dbo].['2016$']&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{8E22ADA7-1E99-4BB9-9E3B-8559E92FC998}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{97D8CF5C-7EB9-4E5A-B5DB-35324786397C}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].['2016$'] (&#xA;[IMO Number] nvarchar(255),&#xA;[Name] nvarchar(255),&#xA;[Ship type] nvarchar(255),&#xA;[Reporting Period] float,&#xA;[Technical efficiency] nvarchar(255),&#xA;[Port of Registry] nvarchar(255),&#xA;[Home Port] nvarchar(255),&#xA;[Ice Class] nvarchar(255),&#xA;[DoC issue date] nvarchar(255),&#xA;[DoC expiry date] nvarchar(255),&#xA;[Verifier Number] nvarchar(255),&#xA;[Verifier Name] nvarchar(255),&#xA;[Verifier NAB] nvarchar(255),&#xA;[Verifier Address] nvarchar(255),&#xA;[Verifier City] nvarchar(255),&#xA;[Verifier Accreditation number] nvarchar(255),&#xA;[Verifier Country] nvarchar(255),&#xA;[A] nvarchar(255),&#xA;[B] nvarchar(255),&#xA;[C] nvarchar(255),&#xA;[D] nvarchar(255),&#xA;[Total fuel consumption (m tonnes)] float,&#xA;[Fuel consumptions assigned to On laden (m tonnes)] nvarchar(255),&#xA;[Total CO₂ emissions (m tonnes)] float,&#xA;[CO₂ emissions from all voyages between ports under a MS jurisdic] float,&#xA;[CO₂ emissions from all voyages which departed from ports under a] float,&#xA;[CO₂ emissions from all voyages to ports under a MS jurisdiction ] float,&#xA;[CO₂ emissions which occurred within ports under a MS jurisdictio] float,&#xA;[CO₂ emissions assigned to Passenger transport (m tonnes)] nvarchar(255),&#xA;[CO₂ emissions assigned to Freight transport (m tonnes)] nvarchar(255),&#xA;[CO₂ emissions assigned to On laden (m tonnes)] nvarchar(255),&#xA;[Annual Total time spent at sea (hours)] float,&#xA;[Annual average Fuel consumption per distance (kg / n mile)] float,&#xA;[Annual average Fuel consumption per transport work (mass) (g / m] nvarchar(255),&#xA;[Annual average Fuel consumption per transport work (volume) (g /] nvarchar(255),&#xA;[Annual average Fuel consumption per transport work (dwt) (g / dw] nvarchar(255),&#xA;[Annual average Fuel consumption per transport work (pax) (g / pa] float,&#xA;[Annual average Fuel consumption per transport work (freight) (g ] nvarchar(255),&#xA;[Annual average CO₂ emissions per distance (kg CO₂ / n mile)] float,&#xA;[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ] nvarchar(255),&#xA;[Annual average CO₂ emissions per transport work (volume) (g CO₂ ] nvarchar(255),&#xA;[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d] nvarchar(255),&#xA;[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p] float,&#xA;[Annual average CO₂ emissions per transport work (freight) (g CO₂] nvarchar(255),&#xA;[Through ice (n miles)] nvarchar(255),&#xA;[Total time spent at sea (hours)] float,&#xA;[Total time spent at sea through ice (hours)] nvarchar(255),&#xA;[F48] nvarchar(255),&#xA;[Fuel consumption per distance on laden voyages (kg / n mile)] nvarchar(255),&#xA;[Fuel consumption per transport work (mass) on laden voyages (g /] nvarchar(255),&#xA;[Fuel consumption per transport work (volume) on laden voyages (g] nvarchar(255),&#xA;[Fuel consumption per transport work (dwt) on laden voyages (g / ] nvarchar(255),&#xA;[Fuel consumption per transport work (pax) on laden voyages (g / ] nvarchar(255),&#xA;[Fuel consumption per transport work (freight) on laden voyages (] nvarchar(255),&#xA;[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)] nvarchar(255),&#xA;[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ] nvarchar(255),&#xA;[CO₂ emissions per transport work (volume) on laden voyages (g CO] nvarchar(255),&#xA;[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /] nvarchar(255),&#xA;[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /] nvarchar(255),&#xA;[CO₂ emissions per transport work (freight) on laden voyages (g C] nvarchar(255),&#xA;[Additional information to facilitate the understanding of the re] nvarchar(255),&#xA;[Average density of the cargo transported (m tonnes / m³)] nvarchar(255)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{5B6AFF60-AD73-4CEB-9200-394E18CFE031\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{5B6AFF60-AD73-4CEB-9200-394E18CFE031}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{5B6AFF60-AD73-4CEB-9200-394E18CFE031}"
+      DTS:To="Package\Data Flow Task 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{95C0D20F-A8F5-4587-AFDD-F65F4D89B537\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{95C0D20F-A8F5-4587-AFDD-F65F4D89B537}"
+      DTS:From="Package\Drop table(s) SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{95C0D20F-A8F5-4587-AFDD-F65F4D89B537}"
+      DTS:To="Package\Preparation SQL Task 1"
+      DTS:Value="2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="24.5,209.5" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Drop table(s) SQL Task 1"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="9.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{5B6AFF60-AD73-4CEB-9200-394E18CFE031\}]"
+          TopLeft="104.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{95C0D20F-A8F5-4587-AFDD-F65F4D89B537\}]"
+          TopLeft="104.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,20.4453125,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task 1\Source - '2016$'"
+          TopLeft="157,62.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Data Flow Task 1\Destination - '2016$'"
+          TopLeft="146.5,263.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Excel Source Output]"
+          TopLeft="234.5,104.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,159"
+              Start="0,0"
+              End="0,151.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,151.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,67.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Source - '2016$'">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
