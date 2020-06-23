@@ -8,12 +8,12 @@
   DTS:Description="DTS Wizard-generated package"
   DTS:DTSID="{5019ED39-997E-4953-AD45-11B234A84C66}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Source to SA  Consignor"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{9EC64182-00C8-4587-A4EE-0BEFF08619B7}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{553040B2-94F7-4799-AD24-EAD7A314827C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2kcmjlsCqEmakaRbri3FOgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAADEruIFFAMUAPo9GNf6N/7IkSiGEJ06Q+4PIInIp21JwAAAAAOgAAAAAIAACAAAAART6BJzyI5VSn4VvJGEL3USz4MizI+m61u6OKI8s1xThAAAAAyrYvtsXBEfFOFL4vKm9MmQAAAAHH03FSnNsl1FCnI71a0kXIGyBSzrueCMrSWJqyAeHevCSHLIQkBI85RELi2m5h2Nx3sfX4TYT2l/p6eGyWM4EA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACKHj/xLHcUisEnuV0t1pkDUxJj4eqajHvsVxM31kVaCAAAAAAOgAAAAAIAACAAAABwXdLZMB4vcsaZOzyV+N7jcb+u2/TJQ67nLH38jJKiBRAAAADhruuRSX+Gqpotxt1jhEJ1QAAAAC/6lwRkr7a6rFfxAttnhqwp42kUiMPiCLILARswoxL2j3hUjFPwfyMTM9pAiCLd8b4swnaGsSxar0zQFSgpoNw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -55,21 +55,55 @@
       DTS:ObjectName="SourceConnectionExcel">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ruben\Source\Repos\ProjectKramses284700\Consignor.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ruben\OneDrive\Documents\kramse\Consignor.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task 1"
+      DTS:refId="Package\Create table Consignor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{8CE5A119-B6B4-4031-A182-D00AC912ED9A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create table Consignor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D38B6206-E7C8-49D0-9527-5DA454DABA23}"
+          SQLTask:SqlStatementSource="CREATE TABLE Consignor (&#xA;[Id] int,&#xA;[Consignor] nvarchar(255),&#xA;[City] nvarchar(255),&#xA;[Country] nvarchar(255),&#xA;[Discount] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop table Consignor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{18D4E211-2D8A-4F5B-B8A9-7F550F437B20}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop table Consignor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D38B6206-E7C8-49D0-9527-5DA454DABA23}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('Consignor', 'U') IS NOT NULL &#xA;  DROP TABLE  Consignor; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load and DQS Consignor"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:DelayValidation="True"
       DTS:DTSID="{F1AA10E3-5A59-4764-A036-EB42063AA33E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task 1"
+      DTS:ObjectName="Load and DQS Consignor"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -78,7 +112,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task 1\Data Conversion"
+              refId="Package\Load and DQS Consignor\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -86,36 +120,36 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\Load and DQS Consignor\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\Data Conversion.Inputs[Data Conversion Input].Columns[Id]"
                       cachedDataType="r8"
                       cachedName="Id"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]" />
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\Data Conversion.Inputs[Data Conversion Input].Columns[Discount]"
                       cachedDataType="r8"
                       cachedName="Discount"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]" />
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Load and DQS Consignor\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
+                      refId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
+                      lineageId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
                       name="Copy of Id"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -123,7 +157,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -131,11 +165,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Discount]"
+                      refId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Discount]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Discount]"
+                      lineageId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Discount]"
                       name="Copy of Discount"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -143,7 +177,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -154,22 +188,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Load and DQS Consignor\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -178,7 +212,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\Derived Column"
+              refId="Package\Load and DQS Consignor\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -186,17 +220,17 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\Load and DQS Consignor\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Derived Column.Inputs[Derived Column Input].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\Derived Column.Inputs[Derived Column Input].Columns[Discount]"
                       cachedDataType="r8"
                       cachedName="Discount"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -204,7 +238,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[REPLACENULL](#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]},0)</property>
+                          name="Expression">[REPLACENULL](#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]},0)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -219,18 +253,18 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task 1\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load and DQS Consignor\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]"
+                      refId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]"
+                      lineageId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]"
                       name="EXTRACTION_DATE"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -251,23 +285,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task 1\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load and DQS Consignor\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -276,7 +310,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\Destination - Consignor$"
+              refId="Package\Load and DQS Consignor\Destination - Consignor$"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -334,7 +368,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Destination - Consignor$.Connections[OleDbConnection]"
+                  refId="Package\Load and DQS Consignor\Destination - Consignor$.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
                   connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
                   description="The OLE DB runtime connection used to access the database."
@@ -342,79 +376,79 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input]"
+                  refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Id]"
                       cachedDataType="r8"
                       cachedName="Id"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]" />
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Consignor]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Consignor"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Consignor]"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]" />
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Consignor]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].Columns[Country_Output]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Country_Output]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Country_Output"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Country]"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]" />
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].Columns[City_Output]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[City_Output]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="City_Output"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[City]"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]" />
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].Columns[EXTRACTION_DATE]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[EXTRACTION_DATE]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EXTRACTION_DATE"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
-                      lineageId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]" />
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
+                      lineageId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Discount]"
                       cachedDataType="r8"
                       cachedName="Discount"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Discount]"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]" />
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Discount]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Id]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Id]"
                       dataType="r8"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Consignor]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Consignor]"
                       dataType="wstr"
                       length="255"
                       name="Consignor" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[City]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[City]"
                       dataType="wstr"
                       length="255"
                       name="City" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Country]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Country]"
                       dataType="wstr"
                       length="255"
                       name="Country" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Discount]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Discount]"
                       dataType="r8"
                       name="Discount" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
                       dataType="dbTimeStamp"
                       name="EXTRACTION_DATE" />
                   </externalMetadataColumns>
@@ -422,22 +456,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Destination - Consignor$.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input]">
+                  synchronousInputId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -446,7 +480,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\DQS Cleansing City"
+              refId="Package\Load and DQS Consignor\DQS Cleansing City"
               componentClassID="Microsoft.ManagedComponentHost"
               description="DQS Cleansing component"
               name="DQS Cleansing City"
@@ -483,54 +517,54 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\DQS Cleansing City.Connections[DQS]"
+                  refId="Package\Load and DQS Consignor\DQS Cleansing City.Connections[DQS]"
                   connectionManagerID="Package.ConnectionManagers[DQS Cleansing Connection Manager.LAPTOP-NACTEHP8]"
                   connectionManagerRefId="Package.ConnectionManagers[DQS Cleansing Connection Manager.LAPTOP-NACTEHP8]"
                   name="DQS" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input]"
+                  refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="DQS Cleansing Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Id]"
                       cachedDataType="r8"
                       cachedName="Id"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Consignor]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Consignor"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[City]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[City]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="City"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Source]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Source]}</property>
                         <property
                           dataType="System.String"
                           name="DomainName">city</property>
@@ -540,78 +574,78 @@
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="CorrectedOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]}</property>
+                          name="CorrectedOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]}</property>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="StatusOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Status]}</property>
+                          name="StatusOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Status]}</property>
                         <property
                           dataType="System.Boolean"
                           name="CorrectedOutputIsString">false</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Country_Source]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Country_Source]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Country_Source"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Source]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Source]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Country_Output]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Country_Output]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Country_Output"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Country_Status]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Country_Status]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Country_Status"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Status]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Status]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Discount]"
                       cachedDataType="r8"
                       cachedName="Discount"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Record Status]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input].Columns[Record Status]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Record Status"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Record Status]">
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Record Status]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Record Status]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Record Status]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -620,66 +654,66 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output]"
+                  refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output]"
                   name="DQS Cleansing Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]"
                       name="Consignor" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Source]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Source]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Source]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Source]"
                       name="City_Source" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]"
                       name="City_Output" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Status]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Status]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Status]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Status]"
                       name="City_Status" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Source]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Source]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Source]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Source]"
                       name="Country_Source" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]"
                       name="Country_Output" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Status]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Status]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Status]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Status]"
                       name="Country_Status" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]"
                       name="Discount" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Record Status]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Record Status]"
                       name="Record Status" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -687,7 +721,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\DQS Cleansing Country"
+              refId="Package\Load and DQS Consignor\DQS Cleansing Country"
               componentClassID="Microsoft.ManagedComponentHost"
               description="DQS Cleansing component"
               name="DQS Cleansing Country"
@@ -724,67 +758,67 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\DQS Cleansing Country.Connections[DQS]"
+                  refId="Package\Load and DQS Consignor\DQS Cleansing Country.Connections[DQS]"
                   connectionManagerID="Package.ConnectionManagers[DQS Cleansing Connection Manager.LAPTOP-NACTEHP8]"
                   connectionManagerRefId="Package.ConnectionManagers[DQS Cleansing Connection Manager.LAPTOP-NACTEHP8]"
                   name="DQS" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\DQS Cleansing Country.Inputs[DQS Cleansing Input]"
+                  refId="Package\Load and DQS Consignor\DQS Cleansing Country.Inputs[DQS Cleansing Input]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="DQS Cleansing Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Id]"
                       cachedDataType="r8"
                       cachedName="Id"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Id]">
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Id]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Consignor]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Consignor"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Consignor]">
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Consignor]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[City]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[City]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="City"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[City]">
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[City]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Country]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Country]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Country"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Country]">
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Country]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]}</property>
                         <property
                           dataType="System.String"
                           name="DomainName">Country/Region (two-letter leading)</property>
@@ -797,23 +831,23 @@
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="CorrectedOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]}</property>
+                          name="CorrectedOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]}</property>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="StatusOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]}</property>
+                          name="StatusOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Inputs[DQS Cleansing Input].Columns[Discount]"
                       cachedDataType="r8"
                       cachedName="Discount"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Discount]">
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Discount]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="SourceOutputLineageId">#{Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]}</property>
+                          name="SourceOutputLineageId">#{Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -822,54 +856,54 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output]"
+                  refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output]"
                   name="DQS Cleansing Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Consignor]"
                       name="Consignor" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[City]"
                       name="City" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Source]"
                       name="Country_Source" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Output]"
                       name="Country_Output" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Country_Status]"
                       name="Country_Status" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Discount]"
                       name="Discount" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                      refId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Record Status]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                      lineageId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output].Columns[Record Status]"
                       name="Record Status" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -877,7 +911,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\Source - Consignor$"
+              refId="Package\Load and DQS Consignor\Source - Consignor$"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Excel Source"
@@ -918,7 +952,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Source - Consignor$.Connections[OleDbConnection]"
+                  refId="Package\Load and DQS Consignor\Source - Consignor$.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
                   connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
                   description="The OLE DB runtime connection used to access the database."
@@ -926,128 +960,128 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output]"
+                  refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output]"
                   name="Excel Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Id]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Id]"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Id]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Id]"
                       name="Id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Consignor]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Consignor]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Consignor]"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Consignor]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Consignor]"
                       name="Consignor"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[City]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[City]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[City]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[City]"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[City]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[City]"
                       name="City"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Country]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Country]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Country]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Country]"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Country]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Country]"
                       name="Country"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Discount]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Discount]"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].Columns[Discount]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Discount]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].Columns[Discount]"
                       name="Discount"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Id]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Id]"
                       dataType="r8"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Consignor]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Consignor]"
                       dataType="wstr"
                       length="255"
                       name="Consignor" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[City]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[City]"
                       dataType="wstr"
                       length="255"
                       name="City" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Country]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Country]"
                       dataType="wstr"
                       length="255"
                       name="Country" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Discount]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output].ExternalColumns[Discount]"
                       dataType="r8"
                       name="Discount" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output]"
+                  refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output]"
                   isErrorOut="true"
                   name="Excel Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Id]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Id]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Consignor]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Consignor]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Consignor]"
                       name="Consignor" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[City]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[City]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[City]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[City]"
                       name="City" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Country]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Country]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Country]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Country]"
                       name="Country" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Discount]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Discount]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[Discount]"
                       name="Discount" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1058,66 +1092,32 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task 1\Destination - Consignor$.Inputs[Destination Input]"
+              refId="Package\Load and DQS Consignor.Paths[Data Conversion Output]"
+              endId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Data Flow Task 1.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\Load and DQS Consignor.Paths[Derived Column Output]"
+              endId="Package\Load and DQS Consignor\Data Conversion.Inputs[Data Conversion Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task 1\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task 1.Paths[DQS Cleansing Output]"
-              endId="Package\Data Flow Task 1\DQS Cleansing City.Inputs[DQS Cleansing Input]"
+              refId="Package\Load and DQS Consignor.Paths[DQS Cleansing Output]"
+              endId="Package\Load and DQS Consignor\DQS Cleansing City.Inputs[DQS Cleansing Input]"
               name="DQS Cleansing Output"
-              startId="Package\Data Flow Task 1\DQS Cleansing Country.Outputs[DQS Cleansing Output]" />
+              startId="Package\Load and DQS Consignor\DQS Cleansing Country.Outputs[DQS Cleansing Output]" />
             <path
-              refId="Package\Data Flow Task 1.Paths[DQS Cleansing Output1]"
-              endId="Package\Data Flow Task 1\Derived Column.Inputs[Derived Column Input]"
+              refId="Package\Load and DQS Consignor.Paths[DQS Cleansing Output1]"
+              endId="Package\Load and DQS Consignor\Derived Column.Inputs[Derived Column Input]"
               name="DQS Cleansing Output"
-              startId="Package\Data Flow Task 1\DQS Cleansing City.Outputs[DQS Cleansing Output]" />
+              startId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output]" />
             <path
-              refId="Package\Data Flow Task 1.Paths[Excel Source Output]"
-              endId="Package\Data Flow Task 1\DQS Cleansing Country.Inputs[DQS Cleansing Input]"
+              refId="Package\Load and DQS Consignor.Paths[Excel Source Output]"
+              endId="Package\Load and DQS Consignor\DQS Cleansing Country.Inputs[DQS Cleansing Input]"
               name="Excel Source Output"
-              startId="Package\Data Flow Task 1\Source - Consignor$.Outputs[Excel Source Output]" />
+              startId="Package\Load and DQS Consignor\Source - Consignor$.Outputs[Excel Source Output]" />
           </paths>
         </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Drop table"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{18D4E211-2D8A-4F5B-B8A9-7F550F437B20}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Drop table"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{98565BE9-C13E-42DC-AA5E-8DEBD3B96409}"
-          SQLTask:SqlStatementSource="drop table [dbo].[Consignor$]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Preparation SQL Task 1"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:DTSID="{8CE5A119-B6B4-4031-A182-D00AC912ED9A}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:FailPackageOnFailure="True"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Preparation SQL Task 1"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{98565BE9-C13E-42DC-AA5E-8DEBD3B96409}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Consignor$] (&#xA;[Id] int,&#xA;[Consignor] nvarchar(255),&#xA;[City] nvarchar(255),&#xA;[Country] nvarchar(255),&#xA;[Discount] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1126,18 +1126,18 @@
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{FF8CD1E0-992D-4784-B1DE-71237486C421}"
-      DTS:From="Package\Drop table"
+      DTS:From="Package\Drop table Consignor"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Preparation SQL Task 1" />
+      DTS:To="Package\Create table Consignor" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[{EEFA9A6D-E4D4-43AD-B59B-76F291562879\}]"
       DTS:CreationName=""
       DTS:DTSID="{EEFA9A6D-E4D4-43AD-B59B-76F291562879}"
-      DTS:From="Package\Preparation SQL Task 1"
+      DTS:From="Package\Create table Consignor"
       DTS:LogicalAnd="True"
       DTS:ObjectName="{EEFA9A6D-E4D4-43AD-B59B-76F291562879}"
-      DTS:To="Package\Data Flow Task 1" />
+      DTS:To="Package\Load and DQS Consignor" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1152,31 +1152,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="160,42"
-          Id="Package\Data Flow Task 1"
-          TopLeft="388.5,320.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Drop table"
-          TopLeft="390,109" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\Preparation SQL Task 1"
+          Size="186,42"
+          Id="Package\Create table Consignor"
           TopLeft="373.5,218.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Drop table Consignor"
+          TopLeft="379,110" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Load and DQS Consignor"
+          TopLeft="365.5,322.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="470,151">
+          TopLeft="467.25,152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,67.5"
+              EndConnector="0,66.5"
               Start="0,0"
-              End="0,60">
+              End="0,59">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60" />
+                    End="0,59" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1187,18 +1187,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[{EEFA9A6D-E4D4-43AD-B59B-76F291562879\}]"
-          TopLeft="468.5,260.5">
+          TopLeft="465.25,260.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,62"
               Start="0,0"
-              End="0,52.5">
+              End="0,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1211,36 +1211,36 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task 1">
+    design-time-name="Package\Load and DQS Consignor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154,42"
-          Id="Package\Data Flow Task 1\Derived Column"
+          Id="Package\Load and DQS Consignor\Derived Column"
           TopLeft="671,29" />
         <NodeLayout
           Size="195,42"
-          Id="Package\Data Flow Task 1\Destination - Consignor$"
+          Id="Package\Load and DQS Consignor\Destination - Consignor$"
           TopLeft="1045.5,36.5" />
         <NodeLayout
           Size="188,42"
-          Id="Package\Data Flow Task 1\DQS Cleansing Country"
+          Id="Package\Load and DQS Consignor\DQS Cleansing Country"
           TopLeft="235,26" />
         <NodeLayout
           Size="169,42"
-          Id="Package\Data Flow Task 1\DQS Cleansing City"
+          Id="Package\Load and DQS Consignor\DQS Cleansing City"
           TopLeft="458,30" />
         <NodeLayout
           Size="156,42"
-          Id="Package\Data Flow Task 1\Data Conversion"
+          Id="Package\Load and DQS Consignor\Data Conversion"
           TopLeft="857,33" />
         <NodeLayout
           Size="174,42"
-          Id="Package\Data Flow Task 1\Source - Consignor$"
+          Id="Package\Load and DQS Consignor\Source - Consignor$"
           TopLeft="16,22.5" />
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Excel Source Output]"
+          Id="Package\Load and DQS Consignor.Paths[Excel Source Output]"
           TopLeft="190,45.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1258,11 +1258,13 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[DQS Cleansing Output1]"
+          Id="Package\Load and DQS Consignor.Paths[DQS Cleansing Output1]"
           TopLeft="627,50.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1280,11 +1282,13 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[DQS Cleansing Output]"
+          Id="Package\Load and DQS Consignor.Paths[DQS Cleansing Output]"
           TopLeft="423,49">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1302,11 +1306,13 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Derived Column Output]"
+          Id="Package\Load and DQS Consignor.Paths[Derived Column Output]"
           TopLeft="825,52">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1324,11 +1330,13 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+          Id="Package\Load and DQS Consignor.Paths[Data Conversion Output]"
           TopLeft="1013,55.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1346,14 +1354,16 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task 1\Destination - Consignor$">
+    design-time-name="Package\Load and DQS Consignor\Destination - Consignor$">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

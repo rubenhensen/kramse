@@ -8,12 +8,12 @@
   DTS:Description="DTS Wizard-generated package"
   DTS:DTSID="{9337B55C-635B-452B-B90A-C393312F8504}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Package1"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{042A00C7-9156-4CE3-A67D-2007428417B6}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{37FF1BF5-1E3E-4DF5-B00A-88AF5E5EE96C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2kcmjlsCqEmakaRbri3FOgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABJXFeIP5ww32Ud4ps5VxCE68FfBNGIPbDBIw8Sf7BXsQAAAAAOgAAAAAIAACAAAABsCguyrdzCuN3jQlo5DCW/qHo/KLwDW74FD0CcX4/CRxAAAAC56PYbCZcK+nAWXePo41ipQAAAAP3KTX/8Kk7VijfmdishBccmwh2tMzuqmtpE44pOkAXGacr8T/OErVXPnjJIAP6PyxmMbgOjxQa7GJsU91EeFoU</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADRak+pRhmXyktNgi+lBwPhV0un1d43CKwLVh3ylmkYPAAAAAAOgAAAAAIAACAAAADuAW9aNBbRfG4hAIU5PYtcK2yx1WpDMha0aIDGrvSbtxAAAACqXGfvQV0XbHTVxDFT2gsSQAAAAGdizNSAdNaTGkZXeCwJ4vh81Et1HLSHvnwG3nErQqcEaJMjcWe9iuySVXqaiVKqYGfkMOgXZBdaWW7coWAf+fo</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -55,7 +55,7 @@
       DTS:ObjectName="SourceConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=C:\Users\ruben\Source\Repos\ProjectKramses284700\KramseTPS v5.mdb;OLE DB SERVICES=0;Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;" />
+          DTS:ConnectionString="Data Source=C:\Users\ruben\OneDrive\Documents\kramse\KramseTPS v5.mdb;Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;OLE DB Services=0;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -502,8 +502,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Destination - Item.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -686,8 +686,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Destination 1 - Port.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -866,8 +866,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Destination 2 - Ship.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1054,8 +1054,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Destination 3 - Shipment.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1238,8 +1238,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Destination 4 - ShipmentDetail.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1809,7 +1809,7 @@
                 <property
                   dataType="System.Int64"
                   name="KnowledgebaseName"
-                  typeConverter="NOTBROWSABLE">1000017</property>
+                  typeConverter="NOTBROWSABLE">1000002</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">Microsoft.DataCorrectionComponent</property>
@@ -3616,8 +3616,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 2\Destination 5 - Voyage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3780,8 +3780,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3966,8 +3966,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 2\Destination 7 - VoyagePort Query.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4635,8 +4635,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{742E1857-22C5-46BB-B32B-0D7C495521D7}"
-          SQLTask:SqlStatementSource="drop table [dbo].[Item]&#xA;GO&#xA;drop table [dbo].[Port]&#xA;GO&#xA;drop table [dbo].[Ship]&#xA;GO&#xA;drop table [dbo].[Shipment]&#xA;GO&#xA;drop table [dbo].[ShipmentDetail]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{D38B6206-E7C8-49D0-9527-5DA454DABA23}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('Item', 'U') IS NOT NULL &#xA;  DROP TABLE Item; &#xA;GO&#xA;IF OBJECT_ID('Port', 'U') IS NOT NULL &#xA;  DROP TABLE Port; &#xA;GO&#xA;IF OBJECT_ID('Ship', 'U') IS NOT NULL &#xA;  DROP TABLE Ship; &#xA;GO&#xA;IF OBJECT_ID('Shipment', 'U') IS NOT NULL &#xA;  DROP TABLE Shipment; &#xA;GO&#xA;IF OBJECT_ID('ShipmentDetail', 'U') IS NOT NULL &#xA;  DROP TABLE ShipmentDetail; &#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4651,8 +4651,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{742E1857-22C5-46BB-B32B-0D7C495521D7}"
-          SQLTask:SqlStatementSource="drop table [dbo].[Voyage]&#xA;GO&#xA;drop table [dbo].[VoyagePort]&#xA;GO&#xA;drop table [dbo].[VoyagePort Query]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{D38B6206-E7C8-49D0-9527-5DA454DABA23}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('Voyage', 'U') IS NOT NULL &#xA;  DROP TABLE Voyage; &#xA;GO&#xA;IF OBJECT_ID('VoyagePort', 'U') IS NOT NULL &#xA;  DROP TABLE VoyagePort; &#xA;GO&#xA;IF OBJECT_ID('dbo.VoyagePort Query', 'U') IS NOT NULL &#xA;  DROP TABLE [dbo].[VoyagePort Query]; &#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4668,8 +4668,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{742E1857-22C5-46BB-B32B-0D7C495521D7}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Item] (&#xA;[item_key] int,&#xA;[item_description] nvarchar(50),&#xA;[item_category] nvarchar(50),&#xA;[item_mfgr] nvarchar(50),&#xA;[item_storage_type] nvarchar(50),&#xA;[item_hazard_flag] nvarchar(50),&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Port] (&#xA;[P_PortOrder] nvarchar(50),&#xA;[VPS_PortId] int,&#xA;[P_PortName] nvarchar(50),&#xA;[P_Country] nvarchar(50),&#xA;[P_DistanceFromOslo] int,&#xA;[P_DistanceFromPiraeus] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Ship] (&#xA;[VS_Shipid] int NOT NULL,&#xA;[Sh_Shipname] nvarchar(50),&#xA;[Sh_MaxNumberContain] int,&#xA;[Sh_SpeedInKnots] int,&#xA;[Sh_SpeedInKm_H] int,&#xA;[Sh_Country] nvarchar(50),&#xA;[Sh_Yearcost] money,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Shipment] (&#xA;[ShipmentId] int,&#xA;[VoyageId] int,&#xA;[ConsignorId] int,&#xA;[PortIdFrom] int,&#xA;[PortIdTo] int,&#xA;[Distance] int,&#xA;[NumberContainers] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[ShipmentDetail] (&#xA;[ShipmentId] int,&#xA;[ContainerNr] nvarchar(50),&#xA;[Item] int,&#xA;[ContainertypeId] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{D38B6206-E7C8-49D0-9527-5DA454DABA23}"
+          SQLTask:SqlStatementSource="CREATE TABLE Item (&#xA;[item_key] int,&#xA;[item_description] nvarchar(50),&#xA;[item_category] nvarchar(50),&#xA;[item_mfgr] nvarchar(50),&#xA;[item_storage_type] nvarchar(50),&#xA;[item_hazard_flag] nvarchar(50),&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE Port (&#xA;[P_PortOrder] nvarchar(50),&#xA;[VPS_PortId] int,&#xA;[P_PortName] nvarchar(50),&#xA;[P_Country] nvarchar(50),&#xA;[P_DistanceFromOslo] int,&#xA;[P_DistanceFromPiraeus] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE Ship (&#xA;[VS_Shipid] int NOT NULL,&#xA;[Sh_Shipname] nvarchar(50),&#xA;[Sh_MaxNumberContain] int,&#xA;[Sh_SpeedInKnots] int,&#xA;[Sh_SpeedInKm_H] int,&#xA;[Sh_Country] nvarchar(50),&#xA;[Sh_Yearcost] money,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE Shipment (&#xA;[ShipmentId] int,&#xA;[VoyageId] int,&#xA;[ConsignorId] int,&#xA;[PortIdFrom] int,&#xA;[PortIdTo] int,&#xA;[Distance] int,&#xA;[NumberContainers] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE ShipmentDetail (&#xA;[ShipmentId] int,&#xA;[ContainerNr] nvarchar(50),&#xA;[Item] int,&#xA;[ContainertypeId] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4685,8 +4685,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{742E1857-22C5-46BB-B32B-0D7C495521D7}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Voyage] (&#xA;[VV_VoyageId] int,&#xA;[VS_ShipId] int,&#xA;[V_DateDepartVoyage] datetime,&#xA;[VPS_PortIdStart] int,&#xA;[V_PortIdEnd] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[VoyagePort] (&#xA;[VV_VoyageId] int NOT NULL,&#xA;[VP_PortIdCurrent] int NOT NULL,&#xA;[Vp_PortIdNext] int NOT NULL,&#xA;[Vp_LegDateDepart] datetime,&#xA;[Vp_LegDateArrival] datetime,&#xA;[Vp_Traject_Distance] int,&#xA;[Vp_PortOrder] nvarchar(50),&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[VoyagePort Query] (&#xA;[Vp_LegDateArrival] datetime,&#xA;[Vp_LegDateDepart] datetime,&#xA;[VV_VoyageId] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{D38B6206-E7C8-49D0-9527-5DA454DABA23}"
+          SQLTask:SqlStatementSource="CREATE TABLE Voyage (&#xA;[VV_VoyageId] int,&#xA;[VS_ShipId] int,&#xA;[V_DateDepartVoyage] datetime,&#xA;[VPS_PortIdStart] int,&#xA;[V_PortIdEnd] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE VoyagePort (&#xA;[VV_VoyageId] int NOT NULL,&#xA;[VP_PortIdCurrent] int NOT NULL,&#xA;[Vp_PortIdNext] int NOT NULL,&#xA;[Vp_LegDateDepart] datetime,&#xA;[Vp_LegDateArrival] datetime,&#xA;[Vp_Traject_Distance] int,&#xA;[Vp_PortOrder] nvarchar(50),&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[VoyagePort Query] (&#xA;[Vp_LegDateArrival] datetime,&#xA;[Vp_LegDateDepart] datetime,&#xA;[VV_VoyageId] int,&#xA;[EXTRACTION_DATE] datetime,&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
