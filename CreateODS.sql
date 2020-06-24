@@ -1,7 +1,7 @@
 USE [i2084700_Project4]
 GO
 
-/****** Object:  Table [dbo].[Dim_Consignor]    Script Date: 6/23/2020 5:01:52 PM ******/
+/****** Object:  Table [dbo].[Dim_Consignor]    Script Date: 6/24/2020 2:17:51 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,21 +9,16 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Dim_Consignor](
-	[Id] [int] NULL,
+	[Id] [int] NOT NULL,
 	[Consignor] [nvarchar](255) NULL,
 	[City] [nvarchar](255) NULL,
 	[Country] [nvarchar](255) NULL,
 	[Discount] [int] NULL,
-	[EXTRACTION_DATE] [datetime] NULL
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Dim_Container]    Script Date: 6/23/2020 5:02:13 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Dim_Container](
 	[Id] [int] NOT NULL,
@@ -33,7 +28,8 @@ CREATE TABLE [dbo].[Dim_Container](
 	[Length] [varchar](50) NULL,
 	[Cubes] [int] NULL,
 	[EuroPricePerKm] [decimal](6, 2) NULL,
-	[EXTRACTION_DATE] [datetime] NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL,
 UNIQUE NONCLUSTERED 
 (
 	[Id] ASC
@@ -41,16 +37,10 @@ UNIQUE NONCLUSTERED
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Dim_Date]    Script Date: 6/23/2020 5:02:34 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Dim_Date](
 	[DateKey] [int] NOT NULL,
-	[Date] [datetime] NULL,
+	[Date] [datetime] NOT NULL,
 	[FullDate] [char](10) NULL,
 	[DayOfMonth] [varchar](2) NULL,
 	[DaySuffix] [varchar](4) NULL,
@@ -103,93 +93,58 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Dim_Item]    Script Date: 6/23/2020 5:02:48 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Dim_Item](
-	[item_key] [int] NULL,
-	[item_description] [nvarchar](50) NULL,
-	[item_category] [nvarchar](50) NULL,
-	[item_mfgr] [nvarchar](50) NULL,
-	[item_storage_type] [nvarchar](50) NULL,
-	[item_hazard_flag] [nvarchar](50) NULL,
-	[EXTRACTION_DATE] [datetime] NULL
+	[Id] [int] NOT NULL,
+	[Description] [nvarchar](50) NULL,
+	[Category] [nvarchar](50) NULL,
+	[Manufacturer] [nvarchar](50) NULL,
+	[StorageType] [nvarchar](50) NULL,
+	[HazardFlag] [nvarchar](50) NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL
 ) ON [PRIMARY]
 GO
 
-
-/****** Object:  Table [dbo].[Dim_Port]    Script Date: 6/23/2020 5:03:07 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Dim_Port](
-	[P_PortOrder] [nvarchar](50) NULL,
-	[VPS_PortId] [int] NULL,
-	[P_PortName] [nvarchar](50) NULL,
-	[P_Country] [nvarchar](50) NULL,
-	[P_DistanceFromOslo] [int] NULL,
-	[P_DistanceFromPiraeus] [int] NULL,
-	[EXTRACTION_DATE] [datetime] NULL
+	[Id] [int] NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Country] [nvarchar](50) NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Dim_Ship]    Script Date: 6/23/2020 5:03:32 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Dim_Ship](
-	[VS_Shipid] [int] NOT NULL,
-	[Sh_Shipname] [nvarchar](50) NULL,
-	[Sh_MaxNumberContain] [int] NULL,
-	[Sh_SpeedInKnots] [int] NULL,
-	[Sh_SpeedInKm_H] [int] NULL,
-	[Sh_Country] [nvarchar](50) NULL,
-	[Sh_Yearcost] [money] NULL,
-	[EXTRACTION_DATE] [datetime] NULL
+	[Id] [int] NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[MaxNumberContain] [int] NULL,
+	[SpeedInKnots] [int] NULL,
+	[SpeedInKm_H] [int] NULL,
+	[Country] [nvarchar](50) NULL,
+	[Yearcost] [money] NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Fact_Shipment]    Script Date: 6/23/2020 5:03:47 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Fact_Shipment](
-	[ShipmentId] [int] NULL,
-	[VoyageId] [int] NULL,
-	[ContainertypeId] [int] NULL,
-	[ShipId] [int] NULL,
-	[ConsignorId] [int] NULL,
-	[PortIdFrom] [int] NULL,
-	[PortIdTo] [int] NULL,
-	[Distance] [int] NULL,
-	[NumberContainers] [int] NULL,
+	[ShipId] [int] NOT NULL,
+	[ContainerId] [int] NOT NULL,
+	[ConsignorId] [int] NOT NULL,
+	[ItemId] [int] NOT NULL,
+	[Distance] [int] NOT NULL,
 	[ContainerNr] [nvarchar](50) NULL,
-	[Item] [int] NULL,
-	[DateDepartVoyage] [datetime] NULL,
-	[PortIdStart] [int] NULL,
-	[PortIdEnd] [int] NULL,
 	[PortIdCurrent] [int] NOT NULL,
 	[PortIdNext] [int] NOT NULL,
-	[LegDateDepart] [datetime] NULL,
-	[LegDateArrival] [datetime] NULL,
-	[Traject_Distance] [int] NULL,
-	[PortOrder] [nvarchar](50) NULL,
-	[EXTRACTION_DATE] [datetime] NULL
+	[LegDateArrival] [datetime] NOT NULL,
+	[LegDateDepart] [datetime] NOT NULL,
+	[TrajectDistance] [int] NULL,
+	[NumberContainers] [int] NULL,
+	[ActiveStatus] [nvarchar](10) NULL
 ) ON [PRIMARY]
 GO
-
-
 
