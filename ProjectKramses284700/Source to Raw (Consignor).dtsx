@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Source to SA  Consignor"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{553040B2-94F7-4799-AD24-EAD7A314827C}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{D82CCC7C-9FD9-45D1-A04C-7AE82416E645}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACKHj/xLHcUisEnuV0t1pkDUxJj4eqajHvsVxM31kVaCAAAAAAOgAAAAAIAACAAAABwXdLZMB4vcsaZOzyV+N7jcb+u2/TJQ67nLH38jJKiBRAAAADhruuRSX+Gqpotxt1jhEJ1QAAAAC/6lwRkr7a6rFfxAttnhqwp42kUiMPiCLILARswoxL2j3hUjFPwfyMTM9pAiCLd8b4swnaGsSxar0zQFSgpoNw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACcI/8Qxe67bsh49EZA+FG0WNSwXxK4Ne1nBtdTOfuOegAAAAAOgAAAAAIAACAAAADHGleCz/YxY3Mz/CAnTvsmHR4Qxb0UmwmkmnX0PototxAAAAAvraEaHvKt9hr6pG4zu/fpQAAAADoHuKzbqf1oDNE2qAUmT4/BR86lGQ6w4KzJguhy/viMv0xPOf35bhcUx5QpiYjtuxrG4zfJv+z7MM3IB8nSnoI</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -310,11 +310,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load and DQS Consignor\Destination - Consignor$"
+              refId="Package\Load and DQS Consignor\Destination - Consignor"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Destination - Consignor$"
+              name="Destination - Consignor"
               usesDispositions="true"
               validateExternalMetadata="False"
               version="4">
@@ -326,7 +326,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Consignor$]</property>
+                  name="OpenRowset">[dbo].[Consignor]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -368,87 +368,87 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load and DQS Consignor\Destination - Consignor$.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  refId="Package\Load and DQS Consignor\Destination - Consignor.Connections[OleDbConnection]"
+                  connectionManagerID="{D38B6206-E7C8-49D0-9527-5DA454DABA23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[aei-sql.avans.nl\Studenten,1443.i2084700_Project1.i2084700]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input]"
+                  refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Id]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].Columns[Id]"
                       cachedDataType="r8"
                       cachedName="Id"
-                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Id]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Id]"
                       lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Consignor]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].Columns[Consignor]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Consignor"
-                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Consignor]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Consignor]"
                       lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Consignor]" />
                     <inputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Country_Output]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].Columns[Country_Output]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Country_Output"
-                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Country]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Country]"
                       lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Country_Output]" />
                     <inputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[City_Output]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].Columns[City_Output]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="City_Output"
-                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[City]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[City]"
                       lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[City_Output]" />
                     <inputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[EXTRACTION_DATE]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].Columns[EXTRACTION_DATE]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EXTRACTION_DATE"
-                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
                       lineageId="Package\Load and DQS Consignor\Derived Column.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]" />
                     <inputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].Columns[Discount]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].Columns[Discount]"
                       cachedDataType="r8"
                       cachedName="Discount"
-                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Discount]"
+                      externalMetadataColumnId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Discount]"
                       lineageId="Package\Load and DQS Consignor\DQS Cleansing City.Outputs[DQS Cleansing Output].Columns[Discount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Id]"
-                      dataType="r8"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Consignor]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Consignor]"
                       dataType="wstr"
                       length="255"
                       name="Consignor" />
                     <externalMetadataColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[City]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[City]"
                       dataType="wstr"
                       length="255"
                       name="City" />
                     <externalMetadataColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Country]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Country]"
                       dataType="wstr"
                       length="255"
                       name="Country" />
                     <externalMetadataColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[Discount]"
-                      dataType="r8"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[Discount]"
+                      dataType="i4"
                       name="Discount" />
                     <externalMetadataColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
                       dataType="dbTimeStamp"
                       name="EXTRACTION_DATE" />
                   </externalMetadataColumns>
@@ -456,22 +456,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Load and DQS Consignor\Destination - Consignor.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input]">
+                  synchronousInputId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load and DQS Consignor\Destination - Consignor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load and DQS Consignor\Destination - Consignor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load and DQS Consignor\Destination - Consignor$.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load and DQS Consignor\Destination - Consignor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1093,7 +1093,7 @@
           <paths>
             <path
               refId="Package\Load and DQS Consignor.Paths[Data Conversion Output]"
-              endId="Package\Load and DQS Consignor\Destination - Consignor$.Inputs[Destination Input]"
+              endId="Package\Load and DQS Consignor\Destination - Consignor.Inputs[Destination Input]"
               name="Data Conversion Output"
               startId="Package\Load and DQS Consignor\Data Conversion.Outputs[Data Conversion Output]" />
             <path
@@ -1214,14 +1214,14 @@
     design-time-name="Package\Load and DQS Consignor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="154,42"
           Id="Package\Load and DQS Consignor\Derived Column"
           TopLeft="671,29" />
         <NodeLayout
-          Size="195,42"
-          Id="Package\Load and DQS Consignor\Destination - Consignor$"
+          Size="189,42"
+          Id="Package\Load and DQS Consignor\Destination - Consignor"
           TopLeft="1045.5,36.5" />
         <NodeLayout
           Size="188,42"
@@ -1258,9 +1258,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1282,9 +1280,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1306,9 +1302,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1330,9 +1324,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1354,16 +1346,27 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load and DQS Consignor\Destination - Consignor$">
+    design-time-name="Package\Load and DQS Consignor\Destination - Consignor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load and DQS Consignor\Source - Consignor$">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

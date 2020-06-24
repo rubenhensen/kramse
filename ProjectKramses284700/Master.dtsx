@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{98B24593-AF2B-4637-9545-09EA41D15E37}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{8FECC43B-F7BE-4F05-9A10-F2053B52D18B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -30,7 +30,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>Source to Raw (Consignor).dtsx</PackageName>
+          <PackageName>Raw to SA (Dimensions).dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -47,7 +47,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>Source to Raw (Consignor).dtsx</PackageName>
+          <PackageName>Raw to SA (Facts).dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -64,7 +64,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>Source to Raw (Consignor).dtsx</PackageName>
+          <PackageName>SA Reduced.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -98,7 +98,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>Source to Raw (Consignor).dtsx</PackageName>
+          <PackageName>Source to Raw (Containers).dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -115,7 +115,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>Source to Raw (Consignor).dtsx</PackageName>
+          <PackageName>Source to Raw (KramseTPS).dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
