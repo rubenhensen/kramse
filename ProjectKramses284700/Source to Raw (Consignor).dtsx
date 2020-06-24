@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Source to SA  Consignor"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{D82CCC7C-9FD9-45D1-A04C-7AE82416E645}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{EFE14D14-88AD-4DE9-94B6-AD65F2EECC4B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACcI/8Qxe67bsh49EZA+FG0WNSwXxK4Ne1nBtdTOfuOegAAAAAOgAAAAAIAACAAAADHGleCz/YxY3Mz/CAnTvsmHR4Qxb0UmwmkmnX0PototxAAAAAvraEaHvKt9hr6pG4zu/fpQAAAADoHuKzbqf1oDNE2qAUmT4/BR86lGQ6w4KzJguhy/viMv0xPOf35bhcUx5QpiYjtuxrG4zfJv+z7MM3IB8nSnoI</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADHlqNUBz0HDFtoJgcX5WW+kUcooYLnlx+8bnTXHd04JwAAAAAOgAAAAAIAACAAAAAcQXDmCU9tr178Zd2dijgrNivGgTiAfha/OCPdNPs3sRAAAAC1v+70JXlTnKZtTa2uuRRSQAAAAGapBjCWkL3S2YbOG59oB4hsJYsqNH6mu6wSjlmPRQCuQFp81G5GqCUmuhg8dh6huBSQvBcFdpx4TkYYZ2IHzmk</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,6 +46,16 @@
             Type="3"
             Value="150" />
         </InnerObject>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{C5394007-6EDF-4593-AAB8-2594C0BEC643}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ruben\OneDrive\Documents\kramse\Consignor2.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager

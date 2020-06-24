@@ -9,18 +9,20 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Dim_Consignor](
+	[RowID] [int] IDENTITY NOT NULL,
 	[Id] [int] NOT NULL,
 	[Consignor] [nvarchar](255) NULL,
 	[City] [nvarchar](255) NULL,
 	[Country] [nvarchar](255) NULL,
 	[Discount] [int] NULL,
-	[StartDate] [date] NULL,
-	[EndDate] [date] NULL
+	[StartDate] [datetime] NULL,
+	[EndDate] [datetime] NULL
 ) ON [PRIMARY]
 GO
 
 
 CREATE TABLE [dbo].[Dim_Container](
+	[RowID] [int] IDENTITY NOT NULL,
 	[Id] [int] NOT NULL,
 	[Type] [varchar](50) NULL,
 	[RefrigerationFlag] [varchar](50) NULL,
@@ -28,8 +30,8 @@ CREATE TABLE [dbo].[Dim_Container](
 	[Length] [varchar](50) NULL,
 	[Cubes] [int] NULL,
 	[EuroPricePerKm] [decimal](6, 2) NULL,
-	[StartDate] [date] NULL,
-	[EndDate] [date] NULL,
+	[StartDate] [datetime] NULL,
+	[EndDate] [datetime] NULL,
 UNIQUE NONCLUSTERED 
 (
 	[Id] ASC
@@ -39,6 +41,7 @@ GO
 
 
 CREATE TABLE [dbo].[Dim_Date](
+	[RowID] [int] IDENTITY NOT NULL,
 	[DateKey] [int] NOT NULL,
 	[Date] [datetime] NOT NULL,
 	[FullDate] [char](10) NULL,
@@ -95,29 +98,32 @@ GO
 
 
 CREATE TABLE [dbo].[Dim_Item](
+	[RowID] [int] IDENTITY NOT NULL,
 	[Id] [int] NOT NULL,
 	[Description] [nvarchar](50) NULL,
 	[Category] [nvarchar](50) NULL,
 	[Manufacturer] [nvarchar](50) NULL,
 	[StorageType] [nvarchar](50) NULL,
 	[HazardFlag] [nvarchar](50) NULL,
-	[StartDate] [date] NULL,
-	[EndDate] [date] NULL
+	[StartDate] [datetime] NULL,
+	[EndDate] [datetime] NULL
 ) ON [PRIMARY]
 GO
 
 
 CREATE TABLE [dbo].[Dim_Port](
+	[RowID] [int] IDENTITY NOT NULL,
 	[Id] [int] NOT NULL,
 	[Name] [nvarchar](50) NULL,
 	[Country] [nvarchar](50) NULL,
-	[StartDate] [date] NULL,
-	[EndDate] [date] NULL
+	[StartDate] [datetime] NULL,
+	[EndDate] [datetime] NULL
 ) ON [PRIMARY]
 GO
 
 
 CREATE TABLE [dbo].[Dim_Ship](
+	[RowID] [int] IDENTITY NOT NULL,
 	[Id] [int] NOT NULL,
 	[Name] [nvarchar](50) NULL,
 	[MaxNumberContain] [int] NULL,
@@ -125,13 +131,14 @@ CREATE TABLE [dbo].[Dim_Ship](
 	[SpeedInKm_H] [int] NULL,
 	[Country] [nvarchar](50) NULL,
 	[Yearcost] [money] NULL,
-	[StartDate] [date] NULL,
-	[EndDate] [date] NULL
+	[StartDate] [datetime] NULL,
+	[EndDate] [datetime] NULL
 ) ON [PRIMARY]
 GO
 
 
 CREATE TABLE [dbo].[Fact_Shipment](
+	[RowID] [int] IDENTITY NOT NULL,
 	[ShipId] [int] NOT NULL,
 	[ContainerId] [int] NOT NULL,
 	[ConsignorId] [int] NOT NULL,
