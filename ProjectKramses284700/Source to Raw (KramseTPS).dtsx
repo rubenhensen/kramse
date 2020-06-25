@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Package1"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{37FF1BF5-1E3E-4DF5-B00A-88AF5E5EE96C}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{076EA4C2-F781-487A-A8AB-1038A18F8513}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADRak+pRhmXyktNgi+lBwPhV0un1d43CKwLVh3ylmkYPAAAAAAOgAAAAAIAACAAAADuAW9aNBbRfG4hAIU5PYtcK2yx1WpDMha0aIDGrvSbtxAAAACqXGfvQV0XbHTVxDFT2gsSQAAAAGdizNSAdNaTGkZXeCwJ4vh81Et1HLSHvnwG3nErQqcEaJMjcWe9iuySVXqaiVKqYGfkMOgXZBdaWW7coWAf+fo</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMLbOyjFx002amGOCBEn6fgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD9dvp7M4Q+/AWhmkrZhj+/98fh4RZyIMTRW3ct6CetdQAAAAAOgAAAAAIAACAAAADWnG49KWU7+N+8ar/mG1BmhSmx3KkoG546cc/6W2sbxhAAAABOCJnqNH5pdd4AvY4ijItcQAAAAL7oXM950goBFVKMtMOGb+k4cDGu3B18Ml6vPyW16htyVdGwejrBuAyMJU+nzRBV1Of8/xdKBGqxhnDC99pqWOw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -3338,6 +3338,88 @@
           version="1">
           <components>
             <component
+              refId="Package\Data Flow Task 2\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 2\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Derived Column.Inputs[Derived Column Input].Columns[Vp_Traject_Distance]"
+                      cachedDataType="i4"
+                      cachedName="Vp_Traject_Distance"
+                      lineageId="Package\Data Flow Task 2\Source 6 - VoyagePort.Outputs[OLE DB Source Output].Columns[Vp_Traject_Distance]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task 2\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Output].Columns[TrajectDistanceSeaMile]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Output].Columns[TrajectDistanceSeaMile]"
+                      name="TrajectDistanceSeaMile"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Data Flow Task 2\Source 6 - VoyagePort.Outputs[OLE DB Source Output].Columns[Vp_Traject_Distance]} * 1.85</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Vp_Traject_Distance * 1.85</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task 2\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task 2\derived extration date"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -3824,12 +3906,6 @@
                       externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input].ExternalColumns[Vp_LegDateArrival]"
                       lineageId="Package\Data Flow Task 2\Source 6 - VoyagePort.Outputs[OLE DB Source Output].Columns[Vp_LegDateArrival]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input].Columns[Vp_Traject_Distance]"
-                      cachedDataType="i4"
-                      cachedName="Vp_Traject_Distance"
-                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input].ExternalColumns[Vp_Traject_Distance]"
-                      lineageId="Package\Data Flow Task 2\Source 6 - VoyagePort.Outputs[OLE DB Source Output].Columns[Vp_Traject_Distance]" />
-                    <inputColumn
                       refId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input].Columns[Vp_PortOrder]"
                       cachedDataType="wstr"
                       cachedLength="50"
@@ -3842,6 +3918,14 @@
                       cachedName="EXTRACTION_DATE"
                       externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input].ExternalColumns[EXTRACTION_DATE]"
                       lineageId="Package\Data Flow Task 2\derived extration date 2.Outputs[Derived Column Output].Columns[EXTRACTION_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input].Columns[TrajectDistanceSeaMile]"
+                      cachedDataType="numeric"
+                      cachedName="TrajectDistanceSeaMile"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input].ExternalColumns[Vp_Traject_Distance]"
+                      lineageId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Output].Columns[TrajectDistanceSeaMile]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4601,9 +4685,14 @@
               startId="Package\Data Flow Task 2\derived extration date 1.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task 2.Paths[Derived Column Output2]"
-              endId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input]"
+              endId="Package\Data Flow Task 2\Derived Column.Inputs[Derived Column Input]"
               name="Derived Column Output"
               startId="Package\Data Flow Task 2\derived extration date 2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task 2.Paths[Derived Column Output3]"
+              endId="Package\Data Flow Task 2\Destination 6 - VoyagePort.Inputs[Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task 2\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task 2.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task 2\derived extration date.Inputs[Derived Column Input]"
@@ -5360,7 +5449,7 @@
     design-time-name="Package\Data Flow Task 2">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="165,42"
           Id="Package\Data Flow Task 2\Source 5 - Voyage"
@@ -5384,7 +5473,7 @@
         <NodeLayout
           Size="205,42"
           Id="Package\Data Flow Task 2\Destination 6 - VoyagePort"
-          TopLeft="536,286.5" />
+          TopLeft="535,311.5" />
         <NodeLayout
           Size="237,42"
           Id="Package\Data Flow Task 2\Destination 7 - VoyagePort Query"
@@ -5488,40 +5577,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task 2.Paths[Derived Column Output2]"
-          TopLeft="629,160.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.5,126"
-              Start="0,0"
-              End="9.5,118.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,59"
-                    Point2="0,63"
-                    Point3="4,63" />
-                  <mssgle:LineSegment
-                    End="5.5,63" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.5,63"
-                    Point2="9.5,63"
-                    Point3="9.5,67" />
-                  <mssgle:LineSegment
-                    End="9.5,118.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Data Flow Task 2.Paths[Derived Column Output1]"
           TopLeft="360,154.5">
           <EdgeLayout.Curve>
@@ -5581,6 +5636,54 @@
                     Point3="9.5,55.5" />
                   <mssgle:LineSegment
                     End="9.5,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Data Flow Task 2\Derived Column"
+          TopLeft="554,213" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 2.Paths[Derived Column Output2]"
+          TopLeft="630,160.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.5"
+              Start="0,0"
+              End="0,45">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 2.Paths[Derived Column Output3]"
+          TopLeft="634.25,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.5"
+              Start="0,0"
+              End="0,49">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

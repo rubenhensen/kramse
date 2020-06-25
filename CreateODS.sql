@@ -1,4 +1,4 @@
-USE [i2084700_Project4]
+USE [i2084700_Project5]
 GO
 
 /****** Object:  Table [dbo].[Dim_Consignor]    Script Date: 6/24/2020 2:17:51 PM ******/
@@ -154,4 +154,16 @@ CREATE TABLE [dbo].[Fact_Shipment](
 	[ActiveStatus] [nvarchar](10) NULL
 ) ON [PRIMARY]
 GO
+
+CREATE TABLE [dbo].[Fact_PortDays](
+	[RowID] [int] IDENTITY NOT NULL,
+	[ShipId] [int] NOT NULL,
+    [LegDateArrival] [datetime] NOT NULL,
+    [PortIdCurrent] [int] NOT NULL,
+    [LegDateDepart][datetime] NOT NULL,
+    [PortDays][int] NOT NULL,
+	[ActiveStatus] [nvarchar](10) NULL
+) ON [PRIMARY]
+GO
+
 
